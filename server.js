@@ -27,6 +27,14 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+    message: "SMART Goal Coach Backend is running 🚀",
+    health: "/health"
+  });
+});
+
 // Health check
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
