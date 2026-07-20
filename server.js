@@ -22,8 +22,12 @@ if (!JWT_SECRET) {
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
-  credentials: true,
+  origin: [
+    'http://localhost:5173',
+    'https://goal-setting-tool.vercel.app',
+    process.env.FRONTEND_URL
+  ].filter(Boolean),
+  credentials: true
 }));
 app.use(express.json());
 
